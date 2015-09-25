@@ -31,9 +31,6 @@ extern	shellcmd  xsh_exit	(int32, char *[]);
 /* in file xsh_help.c */
 extern	shellcmd  xsh_help	(int32, char *[]);
 
-/* in file xsh_hello.c */
-extern  shellcmd  xsh_hello     (int32, char *[]);
-
 /* in file xsh_ipaddr.c */
 extern	shellcmd  xsh_ipaddr	(int32, char *[]);
 
@@ -54,6 +51,9 @@ extern	shellcmd  xsh_nvram	(int32, char *[]);
 
 /* in file xsh_ping.c */
 extern	shellcmd  xsh_ping	(int32, char *[]);
+
+/* in file xsh_prodcons.c */
+extern	shellcmd  xsh_prodcons	(int32, char *[]);
 
 /* in file xsh_ps.c */
 extern	shellcmd  xsh_ps	(int32, char *[]);

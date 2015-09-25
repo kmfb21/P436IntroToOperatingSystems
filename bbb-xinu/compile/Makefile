@@ -10,6 +10,12 @@
 
 COMPILER_ROOT	=	arm-none-eabi-
 
+#ubuntu VM location of libgcc
+LIBGCC_LOC      =      /usr/lib/gcc/arm-none-eabi/4.9.3  
+
+#SoIC linux machine location of libgcc
+# LIBGCC_LOC      =      /l/arm2/devtools/lib/gcc/arm-none-eabi/4.8.4
+
 PNAME		=	bbb
 PLAT		=	Platform_$(PNAME)
 TOPDIR		=	..
@@ -101,7 +107,7 @@ export
 
 xinu:	Makefile rebuild $(BLDDIRS) $(DEFSFILE) $(DEPSFILE) $(CONFH) $(CONFC) $(LD_LIST)
 	@echo;echo 'Loading object files to produce xinu'
-	@$(LD) $(LDFLAGS) $(LD_LIST) -o $(XINU) -L/usr/lib/gcc/arm-none-eabi/4.9.3 -lgcc
+	@$(LD) $(LDFLAGS) $(LD_LIST) -o $(XINU) -L$(LIBGCC_LOC) -lgcc
 	@$(OBJCOPY) -O binary $(XINU) $(XINUBIN)
 	@./uboot-tool/mkimage -A arm -O linux -T kernel -C none -a 0x81000000 -e 0x81000000 -d $(XINUBIN) $(XINUBOOT)
 

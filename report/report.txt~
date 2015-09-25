@@ -1,0 +1,5 @@
+ning kang
+
+1.In a shell environment, starting various jobs in the background, all writing to stdout, has a high chance of interleaving that output, as there is no lock on stdout
+
+2. no, not all produced values getting consumed.
