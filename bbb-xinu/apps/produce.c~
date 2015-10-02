@@ -13,7 +13,6 @@ void producer(const int count){
 		printf("produced: %d\n", n);
 		signal(consumed);
 		wait(produced);
-		
 	}
 }
 

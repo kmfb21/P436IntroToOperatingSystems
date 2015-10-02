@@ -8,9 +8,9 @@ void consumer(const int count){
 	int temp, i;
 	wait(consumed);
 	for (i = 1; i <= 20; i++){
+		printf("consumed: %d\n", n);
 		signal(produced);
-		wait(consumed);
-		printf("consumed: %d\n", n);	
+		wait(consumed);			
 	}
 }
 

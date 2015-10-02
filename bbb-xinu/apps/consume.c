@@ -7,7 +7,7 @@ void consumer(const int count){
      //print consumed value e.g. consumed : 8
 	int temp, i;
 	wait(consumed);
-	for (i = 1; i <= 20; i++){
+	for (i = 1; i <= count; i++){
 		printf("consumed: %d\n", n);
 		signal(produced);
 		wait(consumed);			
