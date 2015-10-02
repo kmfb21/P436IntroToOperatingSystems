@@ -5,22 +5,12 @@ void consumer(const int count){
      //Code to consume values of global variable 'n' until the value
      //of n is less than or equal to count
      //print consumed value e.g. consumed : 8
-	int temp;
+	int temp, i;
 	wait(consumed);
-	while (1){
-
-	if (n == 0){
-		signal(produced);
-		wait(consumed);
-	}
-	else{
-		temp = n;
-		temp -= 1;
-		n = temp;
+	for (i = 1; i <= 20; i++){
 		printf("consumed: %d\n", n);
-	}
-	
-	
+		signal(produced);
+		wait(consumed);			
 	}
 }
 
