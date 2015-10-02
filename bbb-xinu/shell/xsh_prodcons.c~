@@ -1,6 +1,12 @@
 #include <prodcons.h>
+#include <xinu.h>
+#include <stdlib.h> 
+#include <stdio.h>  
+#include <stddef.h>
 int n;                 //Definition for global variable 'n'
 /*Now global variable n will be on Heap so it is accessible all the processes i.e. consume and produce*/
+
+sid32 produced, consumed;
 
 shellcmd xsh_prodcons(int nargs, char *args[])
 {
@@ -9,7 +15,7 @@ shellcmd xsh_prodcons(int nargs, char *args[])
       int count = 2000;             //local varible to hold count
       if (nargs == 2){
       //check args[1] if present assign value to count
-      count = (int)(args[1]);
+      count = atoi(args[1]);
       if (count <= 0){
 	printf("Count must be a positive integer", count);
       	return 0;

@@ -1,7 +1,7 @@
 /* addargs.c - addargs */
 
 #include <xinu.h>
-#include <shprototypes.h>
+#include "shprototypes.h"
 
 /*------------------------------------------------------------------------
  *  addargs  -  Add local copy of argv-style arguments to the stack of
