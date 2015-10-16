@@ -1,0 +1,10 @@
+#include <xinu.h>
+#include "future.h"
+
+syscall future_free(struct future* f){
+	if (NULL != f){
+		freemem(f, sizeof(struct futent));
+		return OK;
+	}
+	return SYSERR;
+}

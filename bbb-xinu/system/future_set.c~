@@ -1,0 +1,15 @@
+#include <xinu.h>
+#include "future.h"
+syscall future_set(struct future* f, int* value){
+	if (NULL == f)
+		return -1;
+	if (FUTURE_EMPTY != f->state)
+		return -1;
+	//TODO assignment 5 may need to change
+	if (FUTURE_EXCLUSIVE != f->flag)
+		return -1;
+	f->state = FUTURE_WAITING;	
+	f->value = value;
+	f->state = FUTURE_VALID;
+	return 1;
+}
