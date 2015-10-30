@@ -8,12 +8,21 @@
 
 /* modes of operation for future*/
 #define FUTURE_EXCLUSIVE  1	
+#define FUTURE_SHARED 2
+#define FUTURE_QUEUE 3
+
+typedef struct queue{
+   pid32 pid;
+   struct queue*next;
+};
 
 typedef struct future{
    int *value;		
-   int flag;		
-   int state;         	
-   pid32 pid;
+   int flag;
+   int state;
+   pid32 pid;//only valid when under FUTURE_EXCLUSIVE mode
+   struct queue* set_queue;
+   struct queue* get_queue;
 };
 
 /* Interface for system call */

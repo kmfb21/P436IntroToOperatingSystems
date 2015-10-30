@@ -3,7 +3,15 @@
 
 syscall future_free(struct future* f){
 	if (NULL != f){
-		freemem(f, sizeof(struct futent));
+		if (NULL != f->set_queue){
+			struct queue* tmp = f->set_queue;
+			while (tmp){
+				freemem((char*)tmp, sizeof(struct queue));
+				tmp = f->set_queue->next;
+			}
+		}
+		
+		freemem((char*)f, sizeof(struct future));
 		return OK;
 	}
 	return SYSERR;
