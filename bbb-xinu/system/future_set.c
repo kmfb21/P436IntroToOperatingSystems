@@ -26,6 +26,7 @@ syscall future_set(struct future* f, int* value){
 		struct queue* tmp = f->get_queue;
 		while (tmp){
 			f->get_queue = f->get_queue->next;
+			//printf("resume process %d\n", tmp->pid);
 			resume(tmp->pid);
 			freemem((char*)tmp, sizeof(struct queue));
 			tmp = f->get_queue;
@@ -42,7 +43,8 @@ syscall future_set(struct future* f, int* value){
 			struct queue* tmp = f->get_queue;
 			f->get_queue = f->get_queue->next;
 			resume(tmp->pid);
-			freemem((char*)tmp, sizeof(struct queue));	
+			//freemem((char*)tmp, sizeof(struct queue));
+			
 		}
 		else{
 			//but if get_queue is empty, then we check set_queue is empty or not

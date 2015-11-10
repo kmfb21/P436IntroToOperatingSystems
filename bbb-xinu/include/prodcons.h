@@ -8,7 +8,7 @@ extern int n; /*this is just declaration*/
 void consumer(const int);
 void producer(const int);
 int future_cons(struct future *);
-int future_prod(struct future *);
+int future_prod(struct future *, int);
 
 /* Semaphore Declarations */
 extern sid32 produced, consumed;
