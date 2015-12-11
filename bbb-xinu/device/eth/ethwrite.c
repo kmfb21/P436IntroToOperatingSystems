@@ -2,7 +2,7 @@
 
 #include <xinu.h>
 
-#define MIN_ETHERNET_FRAME 64
+#define MIN_ETHERNET_FRAME 60
 
 /*------------------------------------------------------------------------
  * ethwrite - enqueue a packet for transmission on TI AM335X Ethernet

@@ -410,7 +410,7 @@ uint32	getlocalip_boot(uint32* boot_server, char* boot_file, uint32* size)
 		}
 	}
 
-	kprintf("DHCP failed to get response\r\n");
+	//kprintf("DHCP failed to get response\r\n");
 	udp_release(slot);
 	return (uint32)SYSERR;
 }

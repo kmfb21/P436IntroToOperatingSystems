@@ -2,6 +2,8 @@
 
 #include <xinu.h>
 
+#define MIN_ETHERNET_FRAME 64
+
 /*------------------------------------------------------------------------
  * ethwrite - enqueue a packet for transmission on TI AM335X Ethernet
  *------------------------------------------------------------------------
@@ -34,6 +36,15 @@ int32	ethwrite (
 		count = PACKLEN;
 	}
 
+	/* Copy the packet into the Tx buffer */
+	memcpy((char *)tdescptr->buffer, buf, count);
+
+  /* Pad frame to minimum Ethernet frame size */
+  if (count < MIN_ETHERNET_FRAME) {
+    memset((char *)tdescptr->buffer+count, 0, MIN_ETHERNET_FRAME - count);
+    count = MIN_ETHERNET_FRAME;
+  }
+
 	/* Initialize the descriptor */
 	tdescptr->next = NULL;
 	tdescptr->buflen = count;
@@ -45,8 +56,6 @@ int32	ethwrite (
 			  ETH_AM335X_TDS_DIR |	/* Directed packet	*/
 			  ETH_AM335X_TDS_P1);	/* Output port is port1	*/
 
-	/* Copy the packet into the Tx buffer */
-	memcpy((char *)tdescptr->buffer, buf, count);
 
 	/* Insert the descriptor into Tx queue */
 

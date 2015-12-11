@@ -1,4 +1,4 @@
-
+9.1
 
 /*------------------------------------------------------------------------
  * printFreeList - Walk the list of free memory blocks and print the
@@ -21,4 +21,7 @@ static void printFreeList(void)
 	}
 	printf("\n");
 }
+
+9.4
+When using the new allocation routine, the memory will be permanently allocated to processes. So gradually, the memory is going to run out. When there is a new process request memory, while the free memory is not enough. The allocation is going to fail all the time after that.
 

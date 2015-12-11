@@ -270,6 +270,10 @@ int32 build_dhcp_request(struct dhcpmsg* dmsg, const struct dhcpmsg* dmsg_offer,
  */
 uint32	getlocalip(void)
 {
+  if (NetData.ipvalid == TRUE) {
+    return NetData.ipucast;
+  }
+
 	return getlocalip_boot(NULL, NULL, NULL);
 }
 

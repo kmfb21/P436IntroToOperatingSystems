@@ -112,7 +112,7 @@ static void printMemUse(void)
 	printf("---------------------------------\n");
 	printf("%10d bytes (0x%08x) of Xinu code\n", code, code);
 	printf("%10d bytes (0x%08x) of allocated stack space\n", stack, stack);
-	if (0 == stackmax)
+	if (-1 == stackmax || 0 == stackmax)
 		printf("no stack is allocated right now.\n");
 	else
 		printf("%10d bytes (0x%08x) of maximum stack space\n", stackmax, stackmax);		
