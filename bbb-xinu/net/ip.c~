@@ -19,7 +19,7 @@ void	ip_in(
 	/* Verify checksum */
 
 	if (ipcksum(pktptr) != 0) {
-		//kprintf("IP header checksum failed\n\r");
+		kprintf("IP header checksum failed\n\r");
 		freebuf((char *)pktptr);
 		return;
 	}

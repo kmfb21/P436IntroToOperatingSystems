@@ -84,7 +84,6 @@ status	arp_resolve (
 	}
 
 	if (i < ARP_SIZ) {	/* Entry was found */
-
 		getutime(&(arptr->arptime));
 		/* If entry is resolved - handle and return */
 

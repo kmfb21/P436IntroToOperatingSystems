@@ -1,0 +1,24 @@
+
+
+/*------------------------------------------------------------------------
+ * printFreeList - Walk the list of free memory blocks and print the
+ *			location and size of each
+ *------------------------------------------------------------------------
+ */
+static void printFreeList(void)
+{
+	struct memblk *block;
+
+	/* Output a heading for the free list */
+
+	printf("Free List:\n");
+	printf("Block address  Length (dec)  Length (hex)\n");
+	printf("-------------  ------------  ------------\n");
+	
+	for (block = memlist.mnext; block != NULL; block = block->mnext) {
+		printf("  0x%08x    %9d     0x%08x\n", block,
+			block->mlength, block->mlength);
+	}
+	printf("\n");
+}
+

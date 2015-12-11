@@ -270,7 +270,6 @@ int32	udp_recvaddr (
 	if (udptr->udcount == 0) {		/* No packet is waiting */
 		udptr->udstate = UDP_RECV;
 		udptr->udpid = currpid;
-		printf("waiting for a packet...\n");
 		msg = recvclr();
 		msg = recvtime(timeout);	/* Wait for a packet	*/
 		udptr->udstate = UDP_USED;

@@ -74,7 +74,7 @@ shellcmd xsh_udpeserver(int nargs, char *args[])
 		msglen = retval;
 		printf("message received: %s\n", buff);
 		/* get a message from the user */
-   		bzero(buff, 1500);
+   		bzero(buf, 1500);
     		printf("Please enter reply: ");
     		fgets(buff, 1500, stdin);
 

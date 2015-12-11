@@ -7,7 +7,6 @@ extern	int32	am335x_eth_init(struct ethcblk *);
 /* in file arp.c */
 
 extern	void	arp_init();
-extern	void 	arp_clean();
 extern	status	arp_resolve(uint32, byte[]);
 extern	void	arp_in(struct arppacket *);
 extern	int32	arp_alloc();
