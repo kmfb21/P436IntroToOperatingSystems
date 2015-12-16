@@ -1,0 +1,9 @@
+Report-8:
+
+implemented the following functions with minimal functionalities. There are still some minor errors within the code.
+int fs_open(char *filename, int flags);
+int fs_close(int fd);
+int fs_create(char *filename, int mode);
+int fs_seek(int fd, int offset);
+int fs_read(int fd, void *buf, int nbytes);
+int fs_write(int fd, void *buf, int nbytes);
